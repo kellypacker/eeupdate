@@ -44,11 +44,17 @@ then
 fi
 
 # Rename sites files with an _old suffix
-mv admin.php admin_old.php 
-mv index.php index_old.php
-mv $SYSTEM_FOLDER ${SYSTEM_FOLDER}_old
-mv themes themes_old
-echo "Old files renamed"
+if [[ -a admin.php ]] && [[ -a index.php ]] && [[ -a $SYSTEM_FOLDER ]] && [[ -a themes ]] && [[ -a ${EESOURCEPATH}system ]]
+then 
+	mv admin.php admin_old.php 
+	mv index.php index_old.php
+	mv $SYSTEM_FOLDER ${SYSTEM_FOLDER}_old
+	mv themes themes_old
+	echo "Old files renamed"
+else
+	echo "One or all of the following do not exist: admin.php, index.php, system dir, themes dir "
+	exit
+fi
 
 # Copy over fresh EE files from source folder
 cp -R ${EESOURCEPATH}system $DIR
