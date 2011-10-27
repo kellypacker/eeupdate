@@ -43,6 +43,16 @@ then
     SYSTEM_FOLDER=$DEFAULT
 fi
 
+# Check if system folder exists as entered by user
+if [[ -a $SYSTEM_FOLDER ]]
+then
+	echo "System folder found"
+else 
+	echo "System folder was not found. Double check spelling and try again."
+	exit
+fi
+
+# Check if old ee files exisit and the new ee files are in the source directory as set above
 # Rename sites files with an _old suffix
 if [[ -a admin.php ]] && [[ -a index.php ]] && [[ -a $SYSTEM_FOLDER ]] && [[ -a themes ]] && [[ -a ${EESOURCEPATH}system ]]
 then 
@@ -52,7 +62,7 @@ then
 	mv themes themes_old
 	echo "Old files renamed"
 else
-	echo "One or all of the following do not exist: admin.php, index.php, system dir, themes dir "
+	echo "One or more of the following do not exist: admin.php, index.php, system dir, themes dir. /n Make sure the new ee files are in the Soure directory as set in the script and you are running the script from the root of the site you want to update."
 	exit
 fi
 
