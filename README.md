@@ -1,15 +1,17 @@
-eeupdate
+# Tic Tac Toe Alert! If you would instead like to review some code that I wrote for a intriguing game of tic tac toe, come on over to this repo: [https://github.com/kellypacker/tictactoe](https://github.com/kellypacker/tictactoe)
 
-Script that readies files for ExpressionEngine update. Although script is non-destructive and does not delete any files, use with caution. Always backup database before running EE update. Use on local site and tailor paths and commands to fit your needs. 
+## eeupdate
+
+Script that readies files for ExpressionEngine update. Although script is non-destructive and does not delete any files, use with caution. Always backup database before running EE update. Use on local site and tailor paths and commands to fit your needs.
 
 The script basically follow the EE update instructions. They can be found here:
 http://expressionengine.com/user_guide/installation/update.html
 
 Instructions:
 1. Backup your EE site database.
-2. Download fresh EE files. 
+2. Download fresh EE files.
 3. Store downloaded files in path as specified in script e.g.: EESOURCEPATH="/Users/kellypacker/Sites/eeupdate/eesource/"
-4. Run script from root of site you want to update. 
+4. Run script from root of site you want to update.
 5. Enter system folder when prompted.
 6. Point your browser at: http://example.com/admin.php
 7. Run the EE update

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Tic Tac Toe Alert! If you would instead like to review some code that I wrote for a intriguing game of tic tac toe, come on over to this repo: https://github.com/kellypacker/tictactoe
 # File:        eeupdate.sh
 # Description: Readies files for an ExpressionEngine Update
 #
@@ -24,7 +25,7 @@
 DIR=$(pwd)
 
 # Specify where you want fresh EE files to be located
-# Download the latest EE files and put them in a folder 
+# Download the latest EE files and put them in a folder
 EESOURCEPATH="/Users/kellypacker/Sites/eeupdate/eesource/"
 
 # The default ExpressionEngine system folder
@@ -34,11 +35,11 @@ DEFAULT="system"
 ERROR_MESSAGE="Not found so no action taken:"
 
 # Ask for system folder name
-printf "Enter your system folder name (default: system):\n" 
+printf "Enter your system folder name (default: system):\n"
 read SYSTEM_FOLDER
 
 # If no value is entered set default
-if [ "$SYSTEM_FOLDER" == "" ] 
+if [ "$SYSTEM_FOLDER" == "" ]
 then
     SYSTEM_FOLDER=$DEFAULT
 fi
@@ -47,7 +48,7 @@ fi
 if [[ -a $SYSTEM_FOLDER ]]
 then
 	echo "System folder found"
-else 
+else
 	echo "System folder was not found. Double check spelling and try again."
 	exit
 fi
@@ -55,8 +56,8 @@ fi
 # Check if old ee files exisit and the new ee files are in the source directory as set above
 # Rename sites files with an _old suffix
 if [[ -a admin.php ]] && [[ -a index.php ]] && [[ -a $SYSTEM_FOLDER ]] && [[ -a themes ]] && [[ -a ${EESOURCEPATH}system ]]
-then 
-	mv admin.php admin_old.php 
+then
+	mv admin.php admin_old.php
 	mv index.php index_old.php
 	mv $SYSTEM_FOLDER ${SYSTEM_FOLDER}_old
 	mv themes themes_old
@@ -91,7 +92,7 @@ echo "System folder name updated in index.php and admin.php"
 cp -f ${SYSTEM_FOLDER}_old/expressionengine/config/config.php $SYSTEM_FOLDER/expressionengine/config/config.php
 cp -f ${SYSTEM_FOLDER}_old/expressionengine/config/database.php $SYSTEM_FOLDER/expressionengine/config/database.php
 cp -Rf ${SYSTEM_FOLDER}_old/expressionengine/templates/ $SYSTEM_FOLDER/expressionengine/templates/
-# mv safecracker_file temporarily 
+# mv safecracker_file temporarily
 mv -f $SYSTEM_FOLDER/expressionengine/third_party/safecracker_file/ $SYSTEM_FOLDER/expressionengine/
 # copy old system/third_party folder to new
 cp -Rf ${SYSTEM_FOLDER}_old/expressionengine/third_party/ $SYSTEM_FOLDER/expressionengine/third_party/
@@ -100,7 +101,7 @@ rm -Rf $SYSTEM_FOLDER/expressionengine/third_party/safecracker_file/
 #mv safecracker file back to third_party dir
 mv -f $SYSTEM_FOLDER/expressionengine/safecracker_file/ $SYSTEM_FOLDER/expressionengine/third_party/
 
-# Delete new themes/third_party 
+# Delete new themes/third_party
 rm -Rf themes/third_party
 # Copy over old themes/third_party
 mv -f themes_old/third_party themes/
@@ -108,8 +109,8 @@ echo "Themes, templates and third_party folders copied from old site"
 
 # Set permissions
 # Declare files and folders as arrays
-FILES_666[0]=$DIR/$SYSTEM_FOLDER/expressionengine/config/config.php 
-FILES_666[1]=$DIR/$SYSTEM_FOLDER/expressionengine/config/database.php 
+FILES_666[0]=$DIR/$SYSTEM_FOLDER/expressionengine/config/config.php
+FILES_666[1]=$DIR/$SYSTEM_FOLDER/expressionengine/config/database.php
 DIRS_777[6]=$DIR/$SYSTEM_FOLDER/expressionengine/cache/
 
 # Check files exist and change permissions
