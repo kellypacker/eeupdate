@@ -1,4 +1,6 @@
-# Tic Tac Toe Alert! If you would instead like to review some code that I wrote for a intriguing game of tic tac toe, come on over to this repo: [https://github.com/kellypacker/tictactoe](https://github.com/kellypacker/tictactoe)
+# Tic Tac Toe Alert!
+
+If you would instead like to review some code that I wrote for a intriguing game of tic tac toe, come on over to this repo: [https://github.com/kellypacker/tictactoe](https://github.com/kellypacker/tictactoe)
 
 ## eeupdate
 
