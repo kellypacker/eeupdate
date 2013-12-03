@@ -1,3 +1,4 @@
 *.swp
 /eesource
 .DS_Store
+/addons
